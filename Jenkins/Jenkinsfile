@@ -25,6 +25,7 @@ pipeline {
                         sh "kubectl apply -f nginx-deployment.yaml"
                         sh "kubectl apply -f nginx-service.yaml"
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        sh "kubectl delete -f complete-demo.yaml"
                         sh "kubectl apply -f complete-demo.yaml"
                         sh "kubectl get services"
                     }
